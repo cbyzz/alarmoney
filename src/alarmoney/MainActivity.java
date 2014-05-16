@@ -78,7 +78,21 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		@Override
 		public Fragment getItem(int position) {
 			ColorFragment ret = new ColorFragment();
-			ret.setColor(0x000000ff * position);
+			
+			switch (position) {
+			case 0:
+				ret.setColor(0xff0000ff);
+				break;
+			case 1:
+				ret.setColor(0xff00ff00);
+				break;
+			case 2:
+				ret.setColor(0xffff0000);
+				break;
+			case 3:
+				ret.setColor(0xff00ffff);
+				break;
+			}
 			
 			return ret;
 		}
@@ -119,6 +133,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			View ret = new View(this.getActivity());
+			Log.d(LOG_TAG, String.format("0x%08x", mColor));
 			ret.setBackgroundColor(mColor);
 			
 			return ret;
