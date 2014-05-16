@@ -1,22 +1,26 @@
 package alarmoney;
 
 import insomnia.alarmoney.R;
-<<<<<<< HEAD
 
 import java.util.Locale;
 
 import alarmoney.views.TabBarView;
-import alarmoney.views.TabBarView.OnTabListener;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity implements OnTabListener {
+public class MainActivity extends FragmentActivity implements TabBarView.OnTabListener {
+	private ImageView msplashLogo = null;
+	private TextView mainText = null;
 	
 	private static final String LOG_TAG = MainActivity.class.getSimpleName();
 	
@@ -24,12 +28,10 @@ public class MainActivity extends FragmentActivity implements OnTabListener {
 	private TabBarView mTabBar = null;
 	private ViewPager mViewPager = null;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	 protected void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
+        setContentView(R.layout.activity_main);
 		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.activity_main);
 	
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -42,28 +44,6 @@ public class MainActivity extends FragmentActivity implements OnTabListener {
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 		mViewPager.setOnPageChangeListener(mTabBar);
-	}
-	
-	@Override
-	public void onTabSelected(int position) {
-		Log.i(LOG_TAG, "onTabSelected");
-		mViewPager.setCurrentItem(position);
-=======
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-public class MainActivity extends Activity {
-	private ImageView msplashLogo = null;
-	private TextView mainText = null;
-
-	 protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
-        super.onCreate(savedInstanceState);
      
         init();
 	}
@@ -81,7 +61,12 @@ public class MainActivity extends Activity {
 				finish();
 		  }
 		}, 3000);
->>>>>>> 7fbc21c452b5f81ff65774719c2da9379dc127cf
+	}
+	
+	@Override
+	public void onTabSelected(int position) {
+		Log.i(LOG_TAG, "onTabSelected");
+		mViewPager.setCurrentItem(position);
 	}
 
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
