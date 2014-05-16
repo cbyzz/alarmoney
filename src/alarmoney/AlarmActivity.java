@@ -30,7 +30,7 @@ public class AlarmActivity extends Activity {
 
 			wl.release();
 			
-			final MediaPlayer mp = MediaPlayer.create(AlarmActivity.this, R.raw.vita500);
+			final MediaPlayer mp = MediaPlayer.create(AlarmActivity.this, R.raw.everybody_marble);
 			mp.start();
 		}
 	};
