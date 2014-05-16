@@ -2,8 +2,11 @@ package alarmoney;
 
 import insomnia.alarmoney.R;
 
+import java.util.Date;
 import java.util.Locale;
 
+import alarmoney.data.alarm.AlarmData;
+import alarmoney.data.alarm.AlarmDataManager;
 import alarmoney.fragments.AlarmFragment;
 import alarmoney.fragments.MenuFragment;
 import alarmoney.fragments.StoreFragment;
@@ -78,8 +81,14 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		mViewPager.setOnPageChangeListener(mTabBar);
 
+		Date now = new Date();
+		now.setMinutes(now.getMinutes() + 1);
 		
-		
+		AlarmData alarm = new AlarmData();
+		alarm.setHour(now.getHours());
+		alarm.setMinute(now.getMinutes());
+		AlarmDataManager.getInstance().addAlarm(alarm);
+		AlarmDataManager.getInstance().setNearestAlarm(this);
      
         // init();
 		
@@ -89,8 +98,8 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	public void onResume() {
 		super.onResume();
 		
-		Message msg = new Message();
-		mHandler.sendMessageDelayed(msg, 120000);
+		//Message msg = new Message();
+		//mHandler.sendMessageDelayed(msg, 10000);
 	}
 	
 	private void findAllAlarms() {

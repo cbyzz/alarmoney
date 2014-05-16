@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import alarmoney.broadcastreceiver.AlarmReceiver;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -51,7 +52,18 @@ public class AlarmDataManager {
 		return mList.get(index);
 	}
 	
-	public Date getNextAlarmDate() {
+	public void setNearestAlarm(Context context) {
+		AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+		
+		Intent newIntent = new Intent(context, AlarmReceiver.class);
+		PendingIntent pender = PendingIntent.getBroadcast(context, 0, newIntent, 0);
+		
+		alarm.cancel(pender);
+		//alarm.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pender);
+		alarm.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pender);
+	}
+	
+	public long getNextAlarmTimeMillis() {
 		Date ret = null;
 		
 		for (AlarmData alarm : mList) {
@@ -63,7 +75,8 @@ public class AlarmDataManager {
 		}
 		
 		Log.d(LOG_TAG, "next alarm time = " + ret);
-		return ret;
+	
+		return ret.getTime();
 	}
 	
 }
