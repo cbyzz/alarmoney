@@ -1,8 +1,11 @@
 package alarmoney.views;
 
+import insomnia.alarmoney.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -16,7 +19,9 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
+@SuppressLint("ResourceAsColor")
 public class TabBarView extends View implements OnPageChangeListener, OnTouchListener {
 	
 	private static final String LOG_TAG = TabBarView.class.getSimpleName();
@@ -57,11 +62,10 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 	
 	private void initView() {
 		_indicatorPaint = new Paint();
-		_indicatorPaint.setColor(_indicatorColor);
-		addTabItemImage(android.R.drawable.btn_plus);
-		addTabItemImage(android.R.drawable.btn_minus);
-		addTabItemImage(android.R.drawable.btn_radio);
-		
+		_indicatorPaint.setColor(android.R.color.white);
+		addTabItemImage(R.drawable.unnamed);
+		addTabItemImage(R.drawable.unnamed);
+		addTabItemImage(R.drawable.unnamed);
 		setWillNotDraw(false);
 		
 		this.setOnTouchListener(this);
@@ -118,7 +122,7 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 		WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
 		
-		height = (int)(((float) display.getHeight()) * 0.07);
+		height = (int)(((float) display.getHeight()) * 0.15);
 		
 		setMeasuredDimension(getMeasuredWidth(), height);
 	}
@@ -129,7 +133,8 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 	
 	public void addTabItemImage(int res) {
 		ImageView imageView = new ImageView(getContext());
-		imageView.setBackgroundResource(res);
+		imageView.setImageResource(res);
+		imageView.setScaleType(ScaleType.CENTER_INSIDE);
 		addTabItemView(imageView);
 	}
 	
