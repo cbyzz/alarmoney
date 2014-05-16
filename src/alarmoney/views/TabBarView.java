@@ -122,7 +122,7 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 		WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
 		
-		height = (int)(((float) display.getHeight()) * 0.15);
+		height = (int)(((float) display.getHeight()) * 0.10);
 		
 		setMeasuredDimension(getMeasuredWidth(), height);
 	}
