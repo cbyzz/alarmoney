@@ -6,11 +6,11 @@
 
     <TextView android:id="@+id/messageLabel"
 		android:layout_width="match_parent" 
-		android:layout_height="wrap_content"
-		android:text="아이템"
+		android:layout_height="30dp"
+		android:text="Store"
 		android:gravity="center"
 		android:textSize="20sp"
-		android:background="@android:color/transparent"	/> 
+		android:background="#123212"	/> 
 		
     <LinearLayout 
         android:id="@+id/item1"
