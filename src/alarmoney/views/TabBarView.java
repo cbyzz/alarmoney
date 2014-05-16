@@ -168,8 +168,8 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 			return;
 		}
 		
-		canvas.drawRect(0, height - UNSELECTED_INDICATOR_HEIGHT, width, height, _indicatorPaint);
-		canvas.drawRect(_slideX , height - SELECTED_INDICATOR_HEIGHT, _slideX + indicatorWidth, height, _indicatorPaint);
+		canvas.drawRect(0, 0, width, UNSELECTED_INDICATOR_HEIGHT, _indicatorPaint);
+		canvas.drawRect(_slideX , 0, _slideX + indicatorWidth, SELECTED_INDICATOR_HEIGHT, _indicatorPaint);
 	}
 
 	@Override
@@ -184,7 +184,9 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 		invalidate();
 	
 		if (positionOffset == 0.0f || positionOffset == 1.0f) {
-			this._listener.onTabSelected(position);
+			if (this._listener != null) {
+				this._listener.onTabSelected(position);
+			}
 		}
 	}
 

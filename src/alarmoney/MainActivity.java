@@ -5,7 +5,6 @@ import insomnia.alarmoney.R;
 import java.util.Locale;
 
 import alarmoney.views.TabBarView;
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,6 +14,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,12 +32,10 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 	 protected void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
+		
         setContentView(R.layout.activity_main);
 		super.onCreate(savedInstanceState);
 	
-		final ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		
 		mTabBar = (TabBarView) findViewById(R.id.tabbar);
 		
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -45,7 +45,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		mViewPager.setOnPageChangeListener(mTabBar);
      
-        init();
+        // init();
 	}
 
 	private void init() {
@@ -77,7 +77,10 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		@Override
 		public Fragment getItem(int position) {
-			return new Fragment();
+			ColorFragment ret = new ColorFragment();
+			ret.setColor(0x000000ff * position);
+			
+			return ret;
 		}
 
 		@Override
@@ -100,6 +103,27 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 			}
 			return null;
 		}
+	}
+	
+	public static class ColorFragment extends Fragment {
+		private int mColor = 0;
+
+		public ColorFragment() {
+			mColor = 0xffffffff;
+		}
+		
+		public void setColor(int color) {
+			mColor = color;
+		}
+		
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+			View ret = new View(this.getActivity());
+			ret.setBackgroundColor(mColor);
+			
+			return ret;
+		}
+		
 	}
 
 }
