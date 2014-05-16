@@ -15,7 +15,7 @@
     <LinearLayout 
         android:id="@+id/item1"
 		    		android:layout_width="match_parent"
-		    		android:layout_height="match_parent"
+		    		android:layout_height="100dp"
 		    		android:padding="16dp"
 					android:orientation="horizontal"     
 		    		android:background="@android:color/transparent" >
@@ -60,7 +60,7 @@
     	 <LinearLayout 
     	     android:id="@+id/item2"
 		    		android:layout_width="match_parent"
-		    		android:layout_height="match_parent"
+		    		android:layout_height="100dp"
 		    		android:padding="16dp"
 					android:orientation="horizontal"     
 		    		android:background="@android:color/transparent" >
@@ -105,7 +105,7 @@
     	 <LinearLayout 
     	     android:id="@+id/item3"
 		    		android:layout_width="match_parent"
-		    		android:layout_height="match_parent"
+		    		android:layout_height="100dp"
 		    		android:padding="16dp"
 					android:orientation="horizontal"     
 		    		android:background="@android:color/transparent" >
@@ -150,7 +150,7 @@
     	 <LinearLayout 
     	     android:id="@+id/item4"
 		    		android:layout_width="match_parent"
-		    		android:layout_height="match_parent"
+		    		android:layout_height="100dp"
 		    		android:padding="16dp"
 					android:orientation="horizontal"     
 		    		android:background="@android:color/transparent" >
@@ -191,5 +191,6 @@
 							android:focusable="true"		
 							android:inputType="textUri"				
 							android:background="#ffffff"	/>
+
     		
 </LinearLayout>
