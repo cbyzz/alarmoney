@@ -1,6 +1,7 @@
 package alarmoney.fragments;
 
 import java.util.Date;
+import java.util.Random;
 
 import insomnia.alarmoney.R;
 import alarmoney.AlarmEditActivity;
@@ -17,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,8 +45,6 @@ public class AlarmFragment extends Fragment {
 			}
 		});
 		
-		
-		ret.setBackgroundColor(0xff0000ff);
 		
 		return ret;
 	}
@@ -74,6 +74,7 @@ public class AlarmFragment extends Fragment {
 			convertView = inflater.inflate(R.layout.listitem_alarm, null);
 			
 			TextView alarmText = (TextView) convertView.findViewById(R.id.text);
+			alarmText.setTextSize(60);
 			
 			Date now = new Date();
 			Date alarmTime = (Date)now.clone();
@@ -82,7 +83,15 @@ public class AlarmFragment extends Fragment {
 			alarmTime.setMinutes(alarm.getMinute());
 			
 			alarmText.setText(DateUtils.formatDateTime(getActivity(), alarmTime.getTime(), DateUtils.FORMAT_SHOW_TIME));
-					
+		
+			ImageView toggle = (ImageView) convertView.findViewById(R.id.toggle);
+			Random random = new Random();
+			if (random.nextInt(2) == 0) {
+				toggle.setImageResource(R.drawable.on_btn);
+			} else {
+				toggle.setImageResource(R.drawable.off_btn);
+			}
+			
 			return convertView;
 		}
 		

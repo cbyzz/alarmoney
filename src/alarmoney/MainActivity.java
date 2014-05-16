@@ -46,26 +46,6 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	private TabBarView mTabBar = null;
 	private ViewPager mViewPager = null;
 	
-	private Handler mHandler = new Handler() {
-
-		@Override
-		public void handleMessage(Message msg) {
-			super.handleMessage(msg);
-			
-			PowerManager pm = (PowerManager) MainActivity.this.getSystemService(Context.POWER_SERVICE);
-			PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
-			wl.acquire();
-
-			// Put here YOUR code.
-			Toast.makeText(MainActivity.this, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show(); // For example
-
-			wl.release();
-			
-			final MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.vita500);
-			mp.start();
-		}
-	};
-
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
 		
