@@ -42,6 +42,7 @@ public class AlarmData {
 		Date ret = new Date();
 		ret.setHours(mHour);
 		ret.setMinutes(mMinute);
+		ret.setSeconds(0);
 		
 		Date now = new Date();
 		if (now.after(ret)) {

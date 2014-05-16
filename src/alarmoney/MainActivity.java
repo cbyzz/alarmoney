@@ -53,7 +53,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		super.onCreate(savedInstanceState);
 	
 		mTabBar = (TabBarView) findViewById(R.id.tabbar);
-
+/*
 		AlarmData alarm;
 		if (AlarmDataManager.getInstance().size() <= 0) {
 		
@@ -80,7 +80,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		alarm.setHour(now.getHours());
 		alarm.setMinute(now.getMinutes());
 		AlarmDataManager.getInstance().addAlarm(alarm);
-		
+*/		
 		AlarmDataManager.getInstance().setNearestAlarm(this);
 		
 		mViewPager = (ViewPager) findViewById(R.id.pager);
