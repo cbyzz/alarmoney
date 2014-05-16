@@ -9,9 +9,14 @@ import alarmoney.fragments.MenuFragment;
 import alarmoney.fragments.StoreFragment;
 import alarmoney.fragments.WatchFragment;
 import alarmoney.views.TabBarView;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.os.PowerManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -23,6 +28,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.alarmclock.util.AlarmDatabase;
+import com.android.alarmclock.util.AlarmDatabase.Record;
 
 public class MainActivity extends FragmentActivity implements TabBarView.OnTabListener {
 	private ImageView msplashLogo = null;
@@ -33,6 +42,26 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	private SectionsPagerAdapter mSectionsPagerAdapter = null;
 	private TabBarView mTabBar = null;
 	private ViewPager mViewPager = null;
+	
+	private Handler mHandler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			
+			PowerManager pm = (PowerManager) MainActivity.this.getSystemService(Context.POWER_SERVICE);
+			PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+			wl.acquire();
+
+			// Put here YOUR code.
+			Toast.makeText(MainActivity.this, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show(); // For example
+
+			wl.release();
+			
+			final MediaPlayer mp = MediaPlayer.create(MainActivity.this, R.raw.vita500);
+			mp.start();
+		}
+	};
 
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
@@ -48,8 +77,30 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 		mViewPager.setOnPageChangeListener(mTabBar);
+
+		
+		
      
         // init();
+		
+		//findAllAlarms();
+	}
+	
+	public void onResume() {
+		super.onResume();
+		
+		Message msg = new Message();
+		mHandler.sendMessageDelayed(msg, 120000);
+	}
+	
+	private void findAllAlarms() {
+		
+		ContentResolver cr = getContentResolver();
+		AlarmDatabase ad = new AlarmDatabase(cr);
+		Record r = ad.getNearestEnabledAlarm();
+		
+		Log.d(LOG_TAG, String.format("nearest ararm time = %02d:%02d", r.hour, r.minute));
+		
 	}
 
 	private void init() {

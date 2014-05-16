@@ -35,7 +35,6 @@ public class AlarmEditActivity extends Activity {
 		mToggleFriday = (Button)findViewById(R.id.toggle_friday);
 		mToggleSaturday = (Button)findViewById(R.id.toggle_saturday);
 		
-		
 	}
 
 }
