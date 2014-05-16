@@ -23,13 +23,7 @@ public class StoreFragment extends Fragment {
 		View ret = inflater.inflate(R.layout.fragment_store, container, false);
 		
 		ret.setBackgroundColor(0xfffffff);
-		arrayList = new ArrayList<String>();
-		arrayList.add("1");
-		arrayList.add("2");
-		arrayList.add("3");
-		arrayList.add("4");
-		arrayList.add("5");
-		
+
 		
 		
 		return ret;
