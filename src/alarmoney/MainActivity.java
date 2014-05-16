@@ -34,7 +34,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	private TabBarView mTabBar = null;
 	private ViewPager mViewPager = null;
 
-	 protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(LOG_TAG, "onCreate");
 		
         setContentView(R.layout.activity_main);
