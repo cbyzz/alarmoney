@@ -133,7 +133,7 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 	
 	public void addTabItemImage(int res) {
 		ImageView imageView = new ImageView(getContext());
-		imageView.setPadding(40, 40, 40, 40);
+		//imageView.setPadding(40, 40, 40, 40);
 		imageView.setImageResource(res);
 		imageView.setScaleType(ScaleType.CENTER);
 		addTabItemView(imageView);
