@@ -12,7 +12,7 @@ public class MenuFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View ret = inflater.inflate(R.layout.fragment_menu, container, false);
 		
-		ret.setBackgroundColor(0xff00ffff);
+		ret.setBackgroundColor(0xffffffff);
 
 		return ret;
 	}

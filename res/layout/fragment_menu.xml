@@ -2,9 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#FFFFFFFF">
 	
     
+    <ImageView 
+							android:layout_width="match_parent" 
+							android:layout_height="wrap_content"
+							android:scaleType="fitXY"
+							android:src="@drawable/tobbar_point" />
     
+     <ImageView 
+							android:layout_width="match_parent" 
+							android:layout_height="match_parent"
+							android:scaleType="fitXY"
+							android:src="@drawable/mymenu" />
     
 </LinearLayout>
