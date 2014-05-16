@@ -165,12 +165,9 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 				ret = new AlarmFragment();
 				break;
 			case 1:
-				ret = new WatchFragment();
-				break;
-			case 2:
 				ret = new MenuFragment();
 				break;
-			case 3:
+			case 2:
 				ret = new StoreFragment();
 				break;
 			}
@@ -180,7 +177,7 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		@Override
 		public int getCount() {
-			return 4;
+			return 3;
 		}
 
 		@Override

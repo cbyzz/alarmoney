@@ -60,7 +60,6 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 		_indicatorPaint.setColor(_indicatorColor);
 		addTabItemImage(android.R.drawable.btn_plus);
 		addTabItemImage(android.R.drawable.btn_minus);
-		addTabItemImage(android.R.drawable.btn_dialog);
 		addTabItemImage(android.R.drawable.btn_radio);
 		
 		setWillNotDraw(false);
