@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   	android:layout_width="match_parent"
+   	android:layout_height="match_parent"
+   	android:orientation="vertical" 
+   	android:background="#ff0000">
+	
+    		<LinearLayout 
+		    		android:layout_width="match_parent"
+		    		android:layout_height="match_parent"
+		    		android:padding="16dp"
+					android:orientation="horizontal"     
+		    		android:background="@android:color/transparent" >
+		    		
+    		    <TextView 
+							android:layout_width="wrap_content" 
+							android:layout_height="50dp"
+							android:paddingLeft="8dp"
+							android:paddingRight="8dp"									 			
+							android:textSize="40sp"					    					
+							android:text="아이디"
+							android:gravity="center"
+							android:background="@android:color/transparent"	/>	
+    
+    		<EditText android:id="@+id/username_edittext"
+							android:layout_width="50dp" 
+							android:layout_height="50dp"
+							android:minHeight="36dp"			 			
+							android:paddingLeft="8dp"
+							android:paddingRight="8dp"
+							android:textSize="14sp"					    			
+							android:maxEms="12"			
+							android:singleLine="true"						
+							android:focusable="true"		
+							android:inputType="textUri"				
+							android:background="#ffffff"	/>
+    		</LinearLayout>
+    		
+    		<LinearLayout 
+		    		android:layout_width="match_parent"
+		    		android:layout_height="match_parent"
+		    		android:padding="16dp"
+					android:orientation="horizontal"     
+		    		android:background="@android:color/transparent" >
+		    		
+    		    <TextView 
+							android:layout_width="wrap_content" 
+							android:layout_height="50dp"
+							android:paddingLeft="8dp"
+							android:paddingRight="8dp"									 			
+							android:textSize="40sp"					    					
+							android:text="비번"
+							android:gravity="center"
+							android:background="@android:color/transparent"	/>	
+    
+    		<EditText android:id="@+id/username_edittext"
+							android:layout_width="50dp" 
+							android:layout_height="50dp"
+							android:minHeight="36dp"			 			
+							android:paddingLeft="8dp"
+							android:paddingRight="8dp"
+							android:textSize="14sp"					    			
+							android:maxEms="12"			
+							android:singleLine="true"						
+							android:focusable="true"		
+							android:inputType="textUri"				
+							android:background="#ffffff"	/>
+    		</LinearLayout>
+    
+</LinearLayout>
