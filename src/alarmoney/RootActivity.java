@@ -10,5 +10,4 @@ public class RootActivity extends Activity {
         super.onCreate(savedInstanceState);  
         
 	}
-	
 }
