@@ -4,6 +4,10 @@ import insomnia.alarmoney.R;
 
 import java.util.Locale;
 
+import alarmoney.fragments.AlarmFragment;
+import alarmoney.fragments.MenuFragment;
+import alarmoney.fragments.StoreFragment;
+import alarmoney.fragments.WatchFragment;
 import alarmoney.views.TabBarView;
 import android.content.Intent;
 import android.os.Bundle;
@@ -77,20 +81,20 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		@Override
 		public Fragment getItem(int position) {
-			ColorFragment ret = new ColorFragment();
+			Fragment ret = null;
 			
 			switch (position) {
 			case 0:
-				ret.setColor(0xff0000ff);
+				ret = new AlarmFragment();
 				break;
 			case 1:
-				ret.setColor(0xff00ff00);
+				ret = new WatchFragment();
 				break;
 			case 2:
-				ret.setColor(0xffff0000);
+				ret = new MenuFragment();
 				break;
 			case 3:
-				ret.setColor(0xff00ffff);
+				ret = new StoreFragment();
 				break;
 			}
 			
