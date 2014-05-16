@@ -47,6 +47,10 @@ public class AlarmDataManager {
 		mList.add(alarm);
 	}
 	
+	public int size() {
+		return mList.size();
+	}
+	
 	public AlarmData getAlarm(int index) {
 		assert(index >= 0 && index < mList.size());
 		return mList.get(index);

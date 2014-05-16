@@ -35,6 +35,11 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
+            android:name="alarmoney.AlarmEditActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
             android:name="alarmoney.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
