@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TimePicker;
 import android.widget.TimePicker.OnTimeChangedListener;
 
@@ -24,7 +25,7 @@ public class AlarmEditActivity extends Activity {
 	private Button mToggleThursday;
 	private Button mToggleFriday;
 	private Button mToggleSaturday;
-	private Button mSaveButton;
+	private ImageButton mSaveButton;
 	
 	private AlarmData mAlarmData;
 	
@@ -37,13 +38,6 @@ public class AlarmEditActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		mTimePicker = (TimePicker)findViewById(R.id.time_picker);
-		mToggleSunday = (Button)findViewById(R.id.toggle_sunday);
-		mToggleMonday = (Button)findViewById(R.id.toggle_monday);
-		mToggleTuesday = (Button)findViewById(R.id.toggle_tuesday);
-		mToggleWednesday = (Button)findViewById(R.id.toggle_wednesday);
-		mToggleThursday = (Button)findViewById(R.id.toggle_thursday);
-		mToggleFriday = (Button)findViewById(R.id.toggle_friday);
-		mToggleSaturday = (Button)findViewById(R.id.toggle_saturday);
 		
 		mTimePicker.setOnTimeChangedListener(new OnTimeChangedListener() {
 
@@ -55,7 +49,7 @@ public class AlarmEditActivity extends Activity {
 			
 		});
 		
-		mSaveButton = (Button)findViewById(R.id.save);
+		mSaveButton = (ImageButton)findViewById(R.id.save);
 		
 		mSaveButton.setOnClickListener(new OnClickListener() {
 
