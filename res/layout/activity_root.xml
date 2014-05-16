@@ -6,20 +6,13 @@
      android:background="@android:color/white">
      
  
-     <ImageView android:id="@+id/iv1"
- 				android:layout_width="250dp"
- 				android:layout_height="200dp"			
+     <ImageView 
+ 				android:layout_width="match_parent"
+ 				android:layout_height="match_parent"			
  				android:layout_gravity="center"
- 				android:src="@drawable/unnamed"
+ 				android:src="@drawable/splash_image"
  				android:contentDescription="@null"
  				android:background="@android:color/transparent" />	
- 	<TextView android:id="@+id/tv1"
- 					android:layout_width="fill_parent" 
- 					android:layout_height="50dp"	
- 					android:gravity="center"
- 					android:text="Alarmoney"
- 					android:textSize="30sp"
- 					android:textStyle="bold"
- 					android:background="@android:color/transparent" />	
+
  	
   </LinearLayout>
