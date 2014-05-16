@@ -74,6 +74,31 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	
 		mTabBar = (TabBarView) findViewById(R.id.tabbar);
 		
+		Date now = new Date();
+		now.setMinutes(now.getMinutes() + 1);
+		
+		AlarmData alarm = new AlarmData();
+		alarm.setHour(7);
+		alarm.setMinute(0);
+		AlarmDataManager.getInstance().addAlarm(alarm);
+		
+		alarm = new AlarmData();
+		alarm.setHour(7);
+		alarm.setMinute(5);
+		AlarmDataManager.getInstance().addAlarm(alarm);
+		
+		alarm = new AlarmData();
+		alarm.setHour(7);
+		alarm.setMinute(10);
+		AlarmDataManager.getInstance().addAlarm(alarm);
+		
+		alarm = new AlarmData();
+		alarm.setHour(now.getHours());
+		alarm.setMinute(now.getMinutes());
+		AlarmDataManager.getInstance().addAlarm(alarm);
+		
+		AlarmDataManager.getInstance().setNearestAlarm(this);
+		
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -81,14 +106,6 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 
 		mViewPager.setOnPageChangeListener(mTabBar);
 
-		Date now = new Date();
-		now.setMinutes(now.getMinutes() + 1);
-		
-		AlarmData alarm = new AlarmData();
-		alarm.setHour(now.getHours());
-		alarm.setMinute(now.getMinutes());
-		AlarmDataManager.getInstance().addAlarm(alarm);
-		AlarmDataManager.getInstance().setNearestAlarm(this);
      
         // init();
 		

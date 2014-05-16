@@ -1,16 +1,24 @@
 package alarmoney.fragments;
 
+import java.util.Date;
+
 import insomnia.alarmoney.R;
 import alarmoney.AlarmEditActivity;
+import alarmoney.data.alarm.AlarmData;
+import alarmoney.data.alarm.AlarmDataManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class AlarmFragment extends Fragment {
 	
@@ -22,6 +30,8 @@ public class AlarmFragment extends Fragment {
 		View ret = inflater.inflate(R.layout.fragment_alarm, container, false);
 	
 		mAlarmList = (ListView)ret.findViewById(R.id.alarm_list);
+		mAlarmList.setAdapter(new AlarmListAdapter());
+		
 		mAddButton = (Button)ret.findViewById(R.id.add);
 		
 		mAddButton.setOnClickListener(new OnClickListener() {
@@ -37,5 +47,44 @@ public class AlarmFragment extends Fragment {
 		ret.setBackgroundColor(0xff0000ff);
 		
 		return ret;
+	}
+	
+	private class AlarmListAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			return AlarmDataManager.getInstance().size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			return AlarmDataManager.getInstance().getAlarm(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			AlarmData alarm = AlarmDataManager.getInstance().getAlarm(position);
+			
+			LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inflater.inflate(R.layout.listitem_alarm, null);
+			
+			TextView alarmText = (TextView) convertView.findViewById(R.id.text);
+			
+			Date now = new Date();
+			Date alarmTime = (Date)now.clone();
+			
+			alarmTime.setHours(alarm.getHour());
+			alarmTime.setMinutes(alarm.getMinute());
+			
+			alarmText.setText(DateUtils.formatDateTime(getActivity(), alarmTime.getTime(), DateUtils.FORMAT_SHOW_TIME));
+					
+			return convertView;
+		}
+		
 	}
 }
