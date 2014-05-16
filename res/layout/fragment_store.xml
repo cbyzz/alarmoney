@@ -4,193 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView android:id="@+id/messageLabel"
-		android:layout_width="match_parent" 
-		android:layout_height="30dp"
-		android:text="Store"
-		android:gravity="center"
-		android:textSize="20sp"
-		android:background="#123212"	/> 
 		
-    <LinearLayout 
-        android:id="@+id/item1"
-		    		android:layout_width="match_parent"
-		    		android:layout_height="100dp"
-		    		android:padding="16dp"
-					android:orientation="horizontal"     
-		    		android:background="@android:color/transparent" >
 		    		
     		    <ImageView 
-							android:layout_width="70dp" 
-							android:layout_height="70dp"
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"									 			
-							android:textSize="40sp"					    					
-							android:text="아이디"
-							android:gravity="center"
-							android:background="#238232"	/>	
+							android:layout_width="match_parent" 
+							android:layout_height="wrap_content"
+							android:scaleType="fitXY"
+							android:src="@drawable/topbar_store" />
+    		    
+    		     <ImageView 
+							android:layout_width="match_parent" 
+							android:layout_height="match_parent"
+							android:scaleType="fitXY"
+							android:src="@drawable/store_imgae" />
     
-    		<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="70dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#290812"	/>
-    		</LinearLayout>
-    		
-    	<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="2dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#ffffff"	/>
     	
-    	 <LinearLayout 
-    	     android:id="@+id/item2"
-		    		android:layout_width="match_parent"
-		    		android:layout_height="100dp"
-		    		android:padding="16dp"
-					android:orientation="horizontal"     
-		    		android:background="@android:color/transparent" >
-		    		
-    		    <ImageView 
-							android:layout_width="70dp" 
-							android:layout_height="70dp"
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"									 			
-							android:textSize="40sp"					    					
-							android:text="아이디"
-							android:gravity="center"
-							android:background="#238232"	/>	
-    
-    		<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="70dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#290812"	/>
-    		</LinearLayout>
-    		
-    	<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="2dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#ffffff"	/>
-    	
-    	 <LinearLayout 
-    	     android:id="@+id/item3"
-		    		android:layout_width="match_parent"
-		    		android:layout_height="100dp"
-		    		android:padding="16dp"
-					android:orientation="horizontal"     
-		    		android:background="@android:color/transparent" >
-		    		
-    		    <ImageView 
-							android:layout_width="70dp" 
-							android:layout_height="70dp"
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"									 			
-							android:textSize="40sp"					    					
-							android:text="아이디"
-							android:gravity="center"
-							android:background="#238232"	/>	
-    
-    		<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="70dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#290812"	/>
-    		</LinearLayout>
-    		
-    	<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="2dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#ffffff"	/>
-    	
-    	 <LinearLayout 
-    	     android:id="@+id/item4"
-		    		android:layout_width="match_parent"
-		    		android:layout_height="100dp"
-		    		android:padding="16dp"
-					android:orientation="horizontal"     
-		    		android:background="@android:color/transparent" >
-		    		
-    		    <ImageView 
-							android:layout_width="70dp" 
-							android:layout_height="70dp"
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"									 			
-							android:textSize="40sp"					    					
-							android:text="아이디"
-							android:gravity="center"
-							android:background="#238232"	/>	
-    
-    		<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="70dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#290812"	/>
-    		</LinearLayout>
-    		
-    	<ImageView 
-							android:layout_width="match_parent" 
-							android:layout_height="2dp"
-							android:minHeight="36dp"			 			
-							android:paddingLeft="8dp"
-							android:paddingRight="8dp"
-							android:textSize="14sp"					    			
-							android:maxEms="12"			
-							android:singleLine="true"						
-							android:focusable="true"		
-							android:inputType="textUri"				
-							android:background="#ffffff"	/>
 
     		
 </LinearLayout>
