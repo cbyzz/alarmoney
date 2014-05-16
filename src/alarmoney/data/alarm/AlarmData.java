@@ -43,6 +43,11 @@ public class AlarmData {
 		ret.setHours(mHour);
 		ret.setMinutes(mMinute);
 		
+		Date now = new Date();
+		if (now.after(ret)) {
+			ret.setDate(ret.getDate()+1);
+		}
+		
 		return ret;
 	}
 }

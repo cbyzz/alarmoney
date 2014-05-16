@@ -73,25 +73,29 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		super.onCreate(savedInstanceState);
 	
 		mTabBar = (TabBarView) findViewById(R.id.tabbar);
+
+		AlarmData alarm;
+		if (AlarmDataManager.getInstance().size() <= 0) {
+		
+			alarm = new AlarmData();
+			alarm.setHour(7);
+			alarm.setMinute(0);
+			AlarmDataManager.getInstance().addAlarm(alarm);
+
+			alarm = new AlarmData();
+			alarm.setHour(7);
+			alarm.setMinute(5);
+			AlarmDataManager.getInstance().addAlarm(alarm);
+
+			alarm = new AlarmData();
+			alarm.setHour(7);
+			alarm.setMinute(10);
+			AlarmDataManager.getInstance().addAlarm(alarm);
+		}
 		
 		Date now = new Date();
 		now.setMinutes(now.getMinutes() + 1);
-		
-		AlarmData alarm = new AlarmData();
-		alarm.setHour(7);
-		alarm.setMinute(0);
-		AlarmDataManager.getInstance().addAlarm(alarm);
-		
-		alarm = new AlarmData();
-		alarm.setHour(7);
-		alarm.setMinute(5);
-		AlarmDataManager.getInstance().addAlarm(alarm);
-		
-		alarm = new AlarmData();
-		alarm.setHour(7);
-		alarm.setMinute(10);
-		AlarmDataManager.getInstance().addAlarm(alarm);
-		
+
 		alarm = new AlarmData();
 		alarm.setHour(now.getHours());
 		alarm.setMinute(now.getMinutes());
@@ -99,9 +103,9 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 		
 		AlarmDataManager.getInstance().setNearestAlarm(this);
 		
-		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
 		mViewPager = (ViewPager) findViewById(R.id.pager);
+		
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
 		mViewPager.setOnPageChangeListener(mTabBar);
@@ -114,6 +118,11 @@ public class MainActivity extends FragmentActivity implements TabBarView.OnTabLi
 	
 	public void onResume() {
 		super.onResume();
+		
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+		mViewPager.setAdapter(mSectionsPagerAdapter);
+
+		mViewPager.setOnPageChangeListener(mTabBar);
 		
 		//Message msg = new Message();
 		//mHandler.sendMessageDelayed(msg, 10000);

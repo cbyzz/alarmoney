@@ -63,9 +63,9 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 	private void initView() {
 		_indicatorPaint = new Paint();
 		_indicatorPaint.setColor(android.R.color.white);
-		addTabItemImage(R.drawable.unnamed);
-		addTabItemImage(R.drawable.unnamed);
-		addTabItemImage(R.drawable.unnamed);
+		addTabItemImage(R.drawable.alarm_s);
+		addTabItemImage(R.drawable.point_n);
+		addTabItemImage(R.drawable.store_n);
 		setWillNotDraw(false);
 		
 		this.setOnTouchListener(this);
@@ -133,22 +133,18 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 	
 	public void addTabItemImage(int res) {
 		ImageView imageView = new ImageView(getContext());
+		imageView.setPadding(40, 40, 40, 40);
 		imageView.setImageResource(res);
-		imageView.setScaleType(ScaleType.CENTER_INSIDE);
+		imageView.setScaleType(ScaleType.CENTER);
 		addTabItemView(imageView);
 	}
 	
 	public Bitmap loadBitmapFromView(View v) {
-		if (_bitmapCache.containsKey(v)) {
-			return _bitmapCache.get(v);
-		}
 		
 	    Bitmap b = Bitmap.createBitmap( v.getWidth(), v.getHeight(), Bitmap.Config.ARGB_8888);                
 	    Canvas c = new Canvas(b);
 	    v.layout(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
 	    v.draw(c);
-	    
-	    _bitmapCache.put(v, b);
 	    
 	    return b;
 	}
@@ -191,12 +187,49 @@ public class TabBarView extends View implements OnPageChangeListener, OnTouchLis
 			if (this._listener != null) {
 				this._listener.onTabSelected(position);
 			}
+			
+			this.onPageSelected(position);
 		}
 	}
 
 	@Override
 	public void onPageSelected(int position) {
+		
+		Log.d(LOG_TAG, "page " + position + " selected");
 		_selected = position;
+		
+		if (_selected == 0) {
+			ImageView imageView = (ImageView)this.getChildAt(0);
+			imageView.setImageResource(R.drawable.alarm_s);
+			imageView.invalidate();
+		} else {
+			ImageView imageView = (ImageView)this.getChildAt(0);
+			imageView.setImageResource(R.drawable.alarm_n);
+			imageView.invalidate();
+		}
+		
+		if (_selected == 1) {
+			ImageView imageView = (ImageView)this.getChildAt(1);
+			imageView.setImageResource(R.drawable.point_s);
+			imageView.invalidate();
+		} else {
+			ImageView imageView = (ImageView)this.getChildAt(1);
+			imageView.setImageResource(R.drawable.point_n);
+			imageView.invalidate();
+		}
+		
+		if (_selected == 2) {
+			ImageView imageView = (ImageView)this.getChildAt(2);
+			imageView.setImageResource(R.drawable.store_s);
+			imageView.invalidate();
+		} else {
+			ImageView imageView = (ImageView)this.getChildAt(2);
+			imageView.setImageResource(R.drawable.store_n);
+			imageView.invalidate();
+		}
+		invalidate();
+		
+		_bitmapCache.clear();
 	}
 
 	@Override

@@ -63,6 +63,8 @@ public class AlarmEditActivity extends Activity {
 			public void onClick(View v) {
 				AlarmDataManager.getInstance().addAlarm(mAlarmData);
 				AlarmDataManager.getInstance().setNearestAlarm(AlarmEditActivity.this);
+				
+				finish();
 			}
 			
 		});

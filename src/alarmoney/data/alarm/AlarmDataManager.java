@@ -63,8 +63,8 @@ public class AlarmDataManager {
 		PendingIntent pender = PendingIntent.getBroadcast(context, 0, newIntent, 0);
 		
 		alarm.cancel(pender);
+		alarm.set(AlarmManager.RTC_WAKEUP, getNextAlarmTimeMillis(), pender);
 		//alarm.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pender);
-		alarm.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000, pender);
 	}
 	
 	public long getNextAlarmTimeMillis() {
